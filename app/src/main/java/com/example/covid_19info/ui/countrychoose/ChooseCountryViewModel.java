@@ -68,7 +68,7 @@ public class ChooseCountryViewModel extends AndroidViewModel {
         return json;
     }
 
-    public void saveCountry(String country, boolean isCountrySelected) {
+    public void saveCountry(String country) {
 
         String[] fullName = country.split("-");
         String iso = fullName[1];
@@ -78,7 +78,7 @@ public class ChooseCountryViewModel extends AndroidViewModel {
         SharedPreferences.Editor edit = preferences.edit();
 
         edit.putString(COUNTRY, iso3);
-        edit.commit();
+        edit.apply();
 
     }
 
