@@ -55,4 +55,5 @@ public class ChooseCountryActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
 }
