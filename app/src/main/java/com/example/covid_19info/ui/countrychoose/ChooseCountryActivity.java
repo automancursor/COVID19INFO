@@ -21,9 +21,10 @@ import butterknife.OnClick;
 
 public class ChooseCountryActivity extends AppCompatActivity {
 
-    private List<Country> countryList;
     @BindView(R.id.autoCompleteTextView)
     AutoCompleteTextView autoCompleteTextView;
+
+    private List<Country> countryList;
     private ChooseCountryViewModel mViewModel;
     private String country;
 
@@ -50,7 +51,8 @@ public class ChooseCountryActivity extends AppCompatActivity {
     @OnClick(R.id.btnContinue)
     void onClick(View view) {
         String country = autoCompleteTextView.getText().toString();
-        mViewModel.saveCountry(country, true);
+        mViewModel.saveCountry(country);
+
         Intent intent = new Intent(ChooseCountryActivity.this, MainActivity.class);
         startActivity(intent);
         finish();

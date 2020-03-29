@@ -84,7 +84,7 @@ public class GlobalData {
     private static class CountryInfo {
 
         @SerializedName("_id")
-        private int confirmed;
+        private int id;
         @SerializedName("country")
         private String country;
         @SerializedName("iso2")
@@ -98,8 +98,8 @@ public class GlobalData {
         @SerializedName("long")
         private long lng;
 
-        public int getConfirmed() {
-            return confirmed;
+        public int getId() {
+            return id;
         }
 
         public String getCountry() {

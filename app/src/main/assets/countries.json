@@ -447,7 +447,7 @@
     "long": -84
   },
   {
-    "country": "Côte d\"Ivoire",
+    "country": "Ivory Coast",
     "iso2": "CI",
     "iso3": "CIV",
     "_id": 384,
@@ -493,7 +493,7 @@
     "long": 33
   },
   {
-    "country": "Czechia",
+    "country": "Czech Republic",
     "iso2": "CZ",
     "iso3": "CZE",
     "_id": 203,
@@ -1002,7 +1002,7 @@
     "long": 173
   },
   {
-    "country": "N. Korea",
+    "country": "North Korea",
     "iso2": "KP",
     "iso3": "PRK",
     "_id": 408,
@@ -1016,7 +1016,7 @@
     ]
   },
   {
-    "country": "S. Korea",
+    "country": "South Korea",
     "iso2": "KR",
     "iso3": "KOR",
     "_id": 410,
@@ -1551,7 +1551,7 @@
     "long": 51.25
   },
   {
-    "country": "Réunion",
+    "country": "Reunion",
     "iso2": "RE",
     "iso3": "REU",
     "_id": 638,
@@ -2005,7 +2005,7 @@
     "long": 32
   },
   {
-    "country": "UAE",
+    "country": "United Arab Emirates",
     "iso2": "AE",
     "iso3": "ARE",
     "_id": 784,
@@ -2016,7 +2016,7 @@
     ]
   },
   {
-    "country": "UK",
+    "country": "United Kingdom",
     "iso2": "GB",
     "iso3": "GBR",
     "_id": 826,
@@ -2028,7 +2028,7 @@
     ]
   },
   {
-    "country": "USA",
+    "country": "United States of America",
     "iso2": "US",
     "iso3": "USA",
     "_id": 840,
