@@ -25,12 +25,14 @@ public class GlobalData {
     @SerializedName("critical")
     private int critical;
     @SerializedName("casesPerOneMillion")
-    private int casesPerOneMillion;
+    private float casesPerOneMillion;
     @SerializedName("deathsPerOneMillion")
-    private int deathsPerOneMillion;
+    private float deathsPerOneMillion;
+    @SerializedName("updated")
+    private long updated;
     @SerializedName("countryInfo")
-    private String countryInfo;
-    
+    private CountryInfo countryInfo;
+
     public String getCountry() {
         return country;
     }
@@ -63,15 +65,19 @@ public class GlobalData {
         return critical;
     }
 
-    public int getCasesPerOneMillion() {
+    public float getCasesPerOneMillion() {
         return casesPerOneMillion;
     }
 
-    public int getDeathsPerOneMillion() {
+    public float getDeathsPerOneMillion() {
         return deathsPerOneMillion;
     }
 
-    public String getCountryInfo() {
+    public long getUpdated() {
+        return updated;
+    }
+
+    public CountryInfo getCountryInfo() {
         return countryInfo;
     }
 
