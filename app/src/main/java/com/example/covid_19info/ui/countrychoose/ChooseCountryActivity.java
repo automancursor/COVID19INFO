@@ -28,6 +28,10 @@ public class ChooseCountryActivity extends AppCompatActivity {
     Spinner spinner;
     private ChooseCountryViewModel mViewModel;
     private String country;
+    SharedPreferences preferences;
+    SharedPreferences.Editor edit;
+
+    private static final String COUNTRY_SELECTED = "isCountrySelected";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +39,16 @@ public class ChooseCountryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_choose_country);
         ButterKnife.bind(this);
         mViewModel = ViewModelProviders.of(this).get(ChooseCountryViewModel.class);
-
+        preferences = getSharedPreferences("Country", MODE_PRIVATE);
         countryList = mViewModel.getCountries();
-        // Creating adapter for spinner
+
+        boolean isSelected = preferences.getBoolean(COUNTRY_SELECTED, false);
+        if (isSelected) {
+            Intent intent = new Intent(ChooseCountryActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
         ArrayAdapter<Jhucsse> dataAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, countryList);
         spinner.setAdapter(dataAdapter);
 
@@ -45,9 +56,8 @@ public class ChooseCountryActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 country = parent.getItemAtPosition(position).toString();
-                SharedPreferences preferences = getSharedPreferences("Country", MODE_PRIVATE);
-                SharedPreferences.Editor edit = preferences.edit();
-                edit.putString("country", country);
+                edit = preferences.edit();
+                edit.putString(String.valueOf(R.string.country), country);
                 edit.commit();
 
             }
@@ -62,8 +72,11 @@ public class ChooseCountryActivity extends AppCompatActivity {
 
     @OnClick(R.id.btnContinue)
     void onClick(View view) {
+        edit.putBoolean(COUNTRY_SELECTED, true);
+        edit.commit();
         Intent intent = new Intent(ChooseCountryActivity.this, MainActivity.class);
         startActivity(intent);
+
         finish();
     }
 }
