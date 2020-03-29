@@ -1,6 +1,7 @@
 package com.example.covid_19info.ui.countrychoose;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -43,7 +44,11 @@ public class ChooseCountryActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                 country = parent.getItemAtPosition(position).toString();
+                country = parent.getItemAtPosition(position).toString();
+                SharedPreferences preferences = getSharedPreferences("Country", MODE_PRIVATE);
+                SharedPreferences.Editor edit = preferences.edit();
+                edit.putString("country", country);
+                edit.commit();
 
             }
 
@@ -58,10 +63,7 @@ public class ChooseCountryActivity extends AppCompatActivity {
     @OnClick(R.id.btnContinue)
     void onClick(View view) {
         Intent intent = new Intent(ChooseCountryActivity.this, MainActivity.class);
-        intent.putExtra("country", country);
         startActivity(intent);
         finish();
-
     }
-
 }
