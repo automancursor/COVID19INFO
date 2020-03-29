@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.covid_19info.R;
+import com.example.covid_19info.utils.AppUtils;
 
 import java.util.Calendar;
 
@@ -60,21 +61,20 @@ public class HomeFragment extends Fragment {
             Calendar cal = Calendar.getInstance();
             cal.setTimeInMillis(data.getUpdated());
 
-            totalCases.setText(formatText("Total", data.getCases()));
-            totalActive.setText(formatText("Active", data.getActive()));
-            totalDeaths.setText(formatText("Deaths", data.getDeaths()));
+            totalCases.setText(AppUtils.formatText("Total", data.getCases()));
+            totalActive.setText(AppUtils.formatText("Active", data.getActive()));
+            totalDeaths.setText(AppUtils.formatText("Deaths", data.getDeaths()));
 
             countryName.setText(String.valueOf(data.getCountry()));
 
-            todayCases.setText(formatText("Today's Cases", data.getTodayCases()));
-            todayDeaths.setText(formatText("Today's Deaths", data.getTodayDeaths()));
-            totalRecovered.setText(formatText("Recovered", data.getRecovered()));
+            todayCases.setText(AppUtils.formatText("Today's Cases", data.getTodayCases()));
+            todayDeaths.setText(AppUtils.formatText("Today's Deaths", data.getTodayDeaths()));
+            totalRecovered.setText(AppUtils.formatText("Recovered", data.getRecovered()));
 
 
             String sf = String.format("%s%s:%s %s/%s/%s", "Updated On :", cal.get(Calendar.HOUR), cal.get(Calendar.MINUTE), cal.get(Calendar.DATE),
                     (cal.get(Calendar.MONTH) + 1), cal.get(Calendar.YEAR));
             textUpdated.setText(sf);
-
 
         });
 
@@ -87,7 +87,4 @@ public class HomeFragment extends Fragment {
         unbinder.unbind();
     }
 
-    private String formatText(String title, int data) {
-        return String.format("%s\n\n %s", title, data);
-    }
 }
