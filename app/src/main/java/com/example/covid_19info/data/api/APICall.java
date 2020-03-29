@@ -8,22 +8,21 @@ import com.example.covid_19info.data.model.OverallData;
 
 import java.util.ArrayList;
 
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.example.covid_19info.data.api.APIConstants.SOMETHING_WENT_WRONG;
 import static com.example.covid_19info.data.api.APIConstants.PLEASE_TRY_AGAIN;
+import static com.example.covid_19info.data.api.APIConstants.SOMETHING_WENT_WRONG;
 
 /**
  * All the details page service calls
  */
-class APICall {
+public class APICall {
 
     private RetroGetCalls getCalls;
 
-    APICall() {
+    public APICall() {
         getCalls = new APIServiceConfig(APIConstants.BASE_URL).createService(RetroGetCalls.class);
     }
 
@@ -32,7 +31,7 @@ class APICall {
      *
      * @param responseListener response listener
      */
-    void getAllJhucsseData(BaseApiResponse<ArrayList<Jhucsse>> responseListener) {
+    public void getAllJhucsseData(BaseApiResponse<ArrayList<Jhucsse>> responseListener) {
         getCalls.getAllJhucsseData()
                 .enqueue(new Callback<ArrayList<Jhucsse>>() {
                     @Override
@@ -60,7 +59,7 @@ class APICall {
      *
      * @param responseListener response listener
      */
-    void getAllGlobalData(BaseApiResponse<ArrayList<GlobalData>> responseListener) {
+    public void getAllGlobalData(BaseApiResponse<ArrayList<GlobalData>> responseListener) {
         getCalls.getAllGlobalData()
                 .enqueue(new Callback<ArrayList<GlobalData>>() {
                     @Override
@@ -88,7 +87,7 @@ class APICall {
      *
      * @param responseListener response listener
      */
-    void getGlobalData(BaseApiResponse<OverallData> responseListener) {
+    public void getGlobalData(BaseApiResponse<OverallData> responseListener) {
         getCalls.getGlobalData()
                 .enqueue(new Callback<OverallData>() {
                     @Override
@@ -117,7 +116,7 @@ class APICall {
      * @param responseListener response listener
      * @param countryISO3      iso3 code of the country
      */
-    void getCountryData(BaseApiResponse<GlobalData> responseListener, String countryISO3) {
+    public void getCountryData(BaseApiResponse<GlobalData> responseListener, String countryISO3) {
         getCalls.getCountryData(countryISO3)
                 .enqueue(new Callback<GlobalData>() {
                     @Override
