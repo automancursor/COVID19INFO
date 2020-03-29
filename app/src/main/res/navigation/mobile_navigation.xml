@@ -12,9 +12,13 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_global"
         android:name="com.example.covid_19info.ui.global.GlobalFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:label="@string/title_global"
+        tools:layout="@layout/fragment_global" />
+    <fragment
+        android:id="@+id/navigation_setting"
+        android:name="com.example.covid_19info.ui.setting.SettingFragment"
+        android:label="@string/title_setting" />
 
 </navigation>
