@@ -23,8 +23,6 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class ChooseCountryViewModel extends AndroidViewModel {
 
-
-    private static final String COUNTRY_SELECTED = "isCountrySelected";
     private static final String COUNTRY = "country";
     private Context context = getApplication().getApplicationContext();
 
@@ -78,13 +76,14 @@ public class ChooseCountryViewModel extends AndroidViewModel {
 
         SharedPreferences preferences = context.getSharedPreferences(COUNTRY, MODE_PRIVATE);
         SharedPreferences.Editor edit = preferences.edit();
+
         edit.putString(COUNTRY, iso3);
-        edit.putBoolean(COUNTRY_SELECTED, isCountrySelected);
         edit.commit();
+
     }
 
     public boolean isCountrySelected() {
         SharedPreferences preferences = context.getSharedPreferences(COUNTRY, MODE_PRIVATE);
-        return preferences.getBoolean(COUNTRY_SELECTED, false);
+        return !"".equalsIgnoreCase(preferences.getString(COUNTRY, ""));
     }
 }

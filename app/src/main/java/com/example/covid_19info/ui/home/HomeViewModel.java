@@ -1,25 +1,39 @@
 package com.example.covid_19info.ui.home;
 
+import android.app.Application;
+import android.content.Context;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
 import com.example.covid_19info.data.api.APICall;
 import com.example.covid_19info.data.api.BaseApiResponse;
-import com.example.covid_19info.data.model.OverallData;
+import com.example.covid_19info.data.model.GlobalData;
 
-public class HomeViewModel extends ViewModel {
+import static android.content.Context.MODE_PRIVATE;
 
-    private MutableLiveData<OverallData> data;
+public class HomeViewModel extends AndroidViewModel {
+
+    private static final String COUNTRY = "country";
+
+
     private APICall apiCall;
+    private MutableLiveData<GlobalData> data;
+    private Context context = getApplication().getApplicationContext();
 
-    public HomeViewModel() {
+    public HomeViewModel(@NonNull Application application) {
+        super(application);
+
+        String countryISO3 = context.getSharedPreferences(COUNTRY, MODE_PRIVATE).getString(COUNTRY, "");
+
         data = new MutableLiveData<>();
         apiCall = new APICall();
 
-        apiCall.getGlobalData(new BaseApiResponse<OverallData>() {
+        apiCall.getCountryData(new BaseApiResponse<GlobalData>() {
             @Override
-            public void onSuccess(OverallData response) {
+            public void onSuccess(GlobalData response) {
                 data.setValue(response);
             }
 
@@ -27,10 +41,10 @@ public class HomeViewModel extends ViewModel {
             public void onError(String errorMessage) {
                 //show error
             }
-        });
+        }, countryISO3);
     }
 
-    LiveData<OverallData> getData() {
+    LiveData<GlobalData> getData() {
         return data;
     }
 }
