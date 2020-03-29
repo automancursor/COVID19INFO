@@ -7,7 +7,7 @@ import android.content.SharedPreferences;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 
-import com.example.covid_19info.data.model.Jhucsse;
+import com.example.covid_19info.data.model.Country;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -33,17 +33,17 @@ public class ChooseCountryViewModel extends AndroidViewModel {
     }
 
 
-    public List<Jhucsse> getCountries() {
+    public List<Country> getCountries() {
         String countries = loadJSONFromAsset();
-        List<Jhucsse> countryList = new ArrayList<>();
+        List<Country> countryList = new ArrayList<>();
         try {
             countryList = new ArrayList<>();
             JSONArray jsonArray = new JSONArray(countries);
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 Gson gson = new Gson();
-                Jhucsse jhucsse = gson.fromJson(String.valueOf(jsonObject), Jhucsse.class);
-                countryList.add(jhucsse);
+                Country country = gson.fromJson(String.valueOf(jsonObject), Country.class);
+                countryList.add(country);
             }
 
         } catch (JSONException e) {
@@ -71,9 +71,14 @@ public class ChooseCountryViewModel extends AndroidViewModel {
     }
 
     public void saveCountry(String country, boolean isCountrySelected) {
+
+        String[] fullName = country.split("-");
+        String iso = fullName[1];
+        String iso3 = iso.replaceAll("\\p{P}", "").trim();
+
         SharedPreferences preferences = context.getSharedPreferences(COUNTRY, MODE_PRIVATE);
         SharedPreferences.Editor edit = preferences.edit();
-        edit.putString(COUNTRY, country);
+        edit.putString(COUNTRY, iso3);
         edit.putBoolean(COUNTRY_SELECTED, isCountrySelected);
         edit.commit();
     }
