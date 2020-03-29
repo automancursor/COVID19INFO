@@ -42,7 +42,6 @@ public class HomeFragment extends Fragment {
                     + cal.get(Calendar.DATE) + "/" + (cal.get(Calendar.MONTH) + 1) + "/" + cal.get(Calendar.YEAR));
             totalRecovered.setText("Recovered\n\n" + data.getRecovered());
 
-
         });
         return root;
     }

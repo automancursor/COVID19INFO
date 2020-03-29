@@ -1,64 +1,70 @@
 package com.example.covid_19info.ui.countrychoose;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 
+import com.example.covid_19info.MainActivity;
 import com.example.covid_19info.R;
 import com.example.covid_19info.data.model.Jhucsse;
-import com.google.gson.Gson;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class ChooseCountryActivity extends AppCompatActivity {
 
     private List<Jhucsse> countryList;
+    @BindView(R.id.spinner)
+    Spinner spinner;
+    private ChooseCountryViewModel mViewModel;
+    private String country;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_country);
+        ButterKnife.bind(this);
+        mViewModel = ViewModelProviders.of(this).get(ChooseCountryViewModel.class);
 
-        String countries = loadJSONFromAsset();
+        countryList = mViewModel.getCountries();
 
-        try {
-            countryList = new ArrayList<>();
-            JSONArray jsonArray = new JSONArray(countries);
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                Gson gson = new Gson();
-                Jhucsse jhucsse = gson.fromJson(String.valueOf(jsonObject), Jhucsse.class);
-                countryList.add(jhucsse);
+        if (mViewModel.isCountrySelected()) {
+            Intent intent = new Intent(ChooseCountryActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
+        ArrayAdapter<Jhucsse> dataAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, countryList);
+
+        spinner.setAdapter(dataAdapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                country = parent.getItemAtPosition(position).toString();
             }
 
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
 
+            }
+        });
     }
 
-
-    public String loadJSONFromAsset() {
-        String json = null;
-        try {
-            InputStream is = getAssets().open("countries.json");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-        return json;
-
+    @OnClick(R.id.btnContinue)
+    void onClick(View view) {
+        mViewModel.saveCountry(country, true);
+        Intent intent = new Intent(ChooseCountryActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
