@@ -10,28 +10,27 @@ import com.example.covid_19info.data.model.OverallData;
 
 public class HomeViewModel extends ViewModel {
 
-    private MutableLiveData<String> mText;
+    private MutableLiveData<OverallData> data;
     private APICall apiCall;
 
     public HomeViewModel() {
-        mText = new MutableLiveData<>();
+        data = new MutableLiveData<>();
         apiCall = new APICall();
 
         apiCall.getGlobalData(new BaseApiResponse<OverallData>() {
             @Override
-            public void onSuccess(OverallData data) {
-                mText.setValue(String.valueOf(data.getCases()));
+            public void onSuccess(OverallData response) {
+                data.setValue(response);
             }
 
             @Override
             public void onError(String errorMessage) {
-
-                mText.setValue(errorMessage);
+                //show error
             }
         });
     }
 
-    LiveData<String> getText() {
-        return mText;
+    LiveData<OverallData> getData() {
+        return data;
     }
 }
