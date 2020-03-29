@@ -56,4 +56,10 @@ public class Jhucsse {
             return recovered;
         }
     }
+
+    @Override
+    public String toString() {
+        return country;
+
+    }
 }

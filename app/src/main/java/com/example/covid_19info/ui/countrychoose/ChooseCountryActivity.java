@@ -1,46 +1,41 @@
 package com.example.covid_19info.ui.countrychoose;
 
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.example.covid_19info.R;
 import com.example.covid_19info.data.model.Jhucsse;
-import com.google.gson.Gson;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class ChooseCountryActivity extends AppCompatActivity {
 
     private List<Jhucsse> countryList;
+    @BindView(R.id.spinner)
+    Spinner spinner;
+    private ChooseCountryViewModel mViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_country);
+        ButterKnife.bind(this);
+        mViewModel = ViewModelProviders.of(this).get(ChooseCountryViewModel.class);
 
-        String countries = loadJSONFromAsset();
+        countryList = mViewModel.getCountries();
+        // Creating adapter for spinner
+        ArrayAdapter<Jhucsse> dataAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, countryList);
+        spinner.setAdapter(dataAdapter);
 
-        try {
-            countryList = new ArrayList<>();
-            JSONArray jsonArray = new JSONArray(countries);
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                Gson gson = new Gson();
-                Jhucsse jhucsse = gson.fromJson(String.valueOf(jsonObject), Jhucsse.class);
-                countryList.add(jhucsse);
-            }
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
 
     }
 
