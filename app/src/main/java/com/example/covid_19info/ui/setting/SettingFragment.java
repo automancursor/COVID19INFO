@@ -40,6 +40,7 @@ public class SettingFragment extends Fragment {
         List<Country> countryList = mViewModel.getCountries();
         ArrayAdapter<Country> dataAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, countryList);
         autoCompleteTextView.setAdapter(dataAdapter);
+        autoCompleteTextView.setText(mViewModel.getCurrentCountry());
 
         return root;
     }

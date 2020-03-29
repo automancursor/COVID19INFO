@@ -3,6 +3,7 @@ package com.example.covid_19info.ui.setting;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.SharedPreferences;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -20,10 +21,13 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class SettingViewModel extends AndroidViewModel {
 
     private MutableLiveData<String> mText;
     private Context context = getApplication().getApplicationContext();
+    private static final String COUNTRY = "country";
 
     public SettingViewModel(@NonNull Application application) {
         super(application);
@@ -65,6 +69,12 @@ public class SettingViewModel extends AndroidViewModel {
             return null;
         }
         return json;
+    }
+
+
+    public String getCurrentCountry() {
+        SharedPreferences preferences = context.getSharedPreferences(COUNTRY, MODE_PRIVATE);
+        return preferences.getString(COUNTRY, "");
     }
 
  /*   public SettingViewModel() {
