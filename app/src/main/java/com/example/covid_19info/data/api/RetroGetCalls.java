@@ -1,11 +1,14 @@
 package com.example.covid_19info.data.api;
 
+import com.example.covid_19info.data.model.GlobalData;
 import com.example.covid_19info.data.model.Jhucsse;
+import com.example.covid_19info.data.model.OverallData;
 
 import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 import static com.example.covid_19info.data.api.APIConstants.ALL;
 import static com.example.covid_19info.data.api.APIConstants.COUNTRIES;
@@ -30,7 +33,7 @@ public interface RetroGetCalls {
      */
 
     @GET(ALL)
-    Call<ArrayList<Jhucsse>> getGlobalData();
+    Call<OverallData> getGlobalData();
 
 
     /**
@@ -40,6 +43,17 @@ public interface RetroGetCalls {
      */
 
     @GET(COUNTRIES)
-    Call<ArrayList<Jhucsse>> getAllGlobalData();
+    Call<ArrayList<GlobalData>> getAllGlobalData();
 
+
+    /**
+     * Get a country by it's ISO3 like "USA"
+     *
+     * @param country Name of the country
+     * @return the data per the country name
+     */
+
+    @GET(COUNTRIES + "/{country}")
+    Call<GlobalData> getCountryData(
+            @Path("country") String country);
 }
