@@ -2,6 +2,7 @@ package com.example.covid_19info.ui.countrychoose;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.SharedPreferences;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -18,7 +19,13 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class ChooseCountryViewModel extends AndroidViewModel {
+
+
+    private static final String COUNTRY_SELECTED = "isCountrySelected";
+    private static final String COUNTRY = "country";
     private Context context = getApplication().getApplicationContext();
 
     public ChooseCountryViewModel(@NonNull Application application) {
@@ -61,6 +68,18 @@ public class ChooseCountryViewModel extends AndroidViewModel {
             return null;
         }
         return json;
+    }
 
+    public void saveCountry(String country, boolean isCountrySelected) {
+        SharedPreferences preferences = context.getSharedPreferences(COUNTRY, MODE_PRIVATE);
+        SharedPreferences.Editor edit = preferences.edit();
+        edit.putString(COUNTRY, country);
+        edit.putBoolean(COUNTRY_SELECTED, isCountrySelected);
+        edit.commit();
+    }
+
+    public boolean isCountrySelected() {
+        SharedPreferences preferences = context.getSharedPreferences(COUNTRY, MODE_PRIVATE);
+        return preferences.getBoolean(COUNTRY_SELECTED, false);
     }
 }
