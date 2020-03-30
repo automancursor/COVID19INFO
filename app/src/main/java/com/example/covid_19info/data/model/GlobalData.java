@@ -94,9 +94,9 @@ public class GlobalData {
         @SerializedName("flag")
         private String flag;
         @SerializedName("lat")
-        private long lat;
+        private double lat;
         @SerializedName("long")
-        private long lng;
+        private double lng;
 
         public int getId() {
             return id;
@@ -118,11 +118,11 @@ public class GlobalData {
             return flag;
         }
 
-        public long getLat() {
+        public double getLat() {
             return lat;
         }
 
-        public long getLng() {
+        public double getLng() {
             return lng;
         }
     }

@@ -21,6 +21,7 @@ public class GlobalViewModel extends ViewModel {
     public GlobalViewModel() {
         apiCall = new APICall();
         data = new MutableLiveData<>();
+        allData = new MutableLiveData<>();
 
         apiCall.getGlobalData(new BaseApiResponse<OverallData>() {
             @Override
@@ -42,7 +43,7 @@ public class GlobalViewModel extends ViewModel {
 
             @Override
             public void onError(String errorMessage) {
-
+                //show error
             }
         });
     }

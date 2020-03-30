@@ -3,4 +3,9 @@
     <string name="title_home">Home</string>
     <string name="title_global">Global</string>
     <string name="title_setting">Setting</string>
+    <string name="country">Country</string>
+    <string name="total_cases">Total Cases</string>
+    <string name="total_death">Total Deaths</string>
+    <string name="new_cases">New Cases</string>
+    <string name="new_death">New Deaths</string>
 </resources>
