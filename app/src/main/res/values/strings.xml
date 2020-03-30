@@ -11,5 +11,5 @@
     <string name="aboutUs">About Us</string>
     <string name="search">Search</string>
     <string name="chooseCountry">Choose your country.</string>
-    <string name="about">Open Source android application for the COVID-19 information from The Nineties Tech.\nAPI used https://github.com/NovelCOVID/API.\nApp Icon : https://www.flaticon.com/authors/freepik</string>
+    <string name="about">Open Source android application for the COVID-19 information from The Nineties Tech.\nAPI used https://github.com/NovelCOVID/API.</string>
 </resources>
