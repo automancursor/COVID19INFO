@@ -4,23 +4,25 @@ package com.example.covid_19info.ui.global;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.covid_19info.R;
 import com.example.covid_19info.data.model.GlobalData;
 
 import java.util.ArrayList;
 
-import com.example.covid_19info.R;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-class GlobalListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+class GlobalListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements Filterable {
 
     private final ArrayList<GlobalData> data;
+    private ArrayList<GlobalData> filterData;
 
     GlobalListAdapter(ArrayList<GlobalData> data) {
 
@@ -57,6 +59,39 @@ class GlobalListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public int getItemCount() {
 
         return data.size();
+    }
+
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String filterString = charSequence.toString();
+                if (filterString.isEmpty()) {
+                    filterData = data;
+                } else {
+                    ArrayList<GlobalData> filteredList = new ArrayList<>();
+                    for (GlobalData dt : data) {
+
+                        if (dt.getCountry().toLowerCase().contains(filterString.toLowerCase())) {
+                            filteredList.add(dt);
+                        }
+                    }
+                    filterData = filteredList;
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = filterData;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                filterData = (ArrayList<GlobalData>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
     }
 
     static class DataViewHolder extends RecyclerView.ViewHolder {
