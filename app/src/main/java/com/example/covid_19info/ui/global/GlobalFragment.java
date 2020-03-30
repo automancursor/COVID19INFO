@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -22,7 +21,6 @@ import java.util.Calendar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnTextChanged;
 import butterknife.Unbinder;
 
 public class GlobalFragment extends Fragment {
@@ -43,8 +41,6 @@ public class GlobalFragment extends Fragment {
     LinearLayout linearLayout;
     @BindView(R.id.recycler)
     RecyclerView recyclerView;
-    @BindView(R.id.search)
-    EditText search;
 
     private Unbinder unbinder;
     private GlobalListAdapter adapter;
@@ -65,7 +61,6 @@ public class GlobalFragment extends Fragment {
             Calendar cal = Calendar.getInstance();
             cal.setTimeInMillis(data.getUpdated());
 
-            search.setVisibility(View.VISIBLE);
             totalCases.setVisibility(View.VISIBLE);
             totalActive.setVisibility(View.VISIBLE);
             totalDeaths.setVisibility(View.VISIBLE);
@@ -83,19 +78,14 @@ public class GlobalFragment extends Fragment {
         });
 
         globalViewModel.getAllData().observe(getViewLifecycleOwner(), allData -> {
-            this.allData = allData;
+            this.allData.clear();
+            this.allData.addAll(allData);
             adapter.notifyDataSetChanged();
         });
 
 
         return root;
     }
-
-    @OnTextChanged(value = R.id.search, callback = OnTextChanged.Callback.TEXT_CHANGED)
-    void onSearch(CharSequence val, int i, int j, int k) {
-        adapter.getFilter().filter(val.toString());
-    }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();

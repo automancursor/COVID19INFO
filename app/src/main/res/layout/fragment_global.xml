@@ -90,28 +90,16 @@
         app:layout_constraintTop_toBottomOf="@id/text_total_active_cases" />
 
 
-    <EditText
-        android:id="@+id/search"
-        style="@style/TextFont"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:hint="@string/search"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@id/ll"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_total_recovered" />
-
     <LinearLayout
         android:id="@+id/ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="30dp"
         android:orientation="horizontal"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/recycler"
-        app:layout_constraintTop_toBottomOf="@id/search">
+        app:layout_constraintTop_toBottomOf="@id/text_total_recovered">
 
         <TextView
             android:id="@+id/text_country_name"
