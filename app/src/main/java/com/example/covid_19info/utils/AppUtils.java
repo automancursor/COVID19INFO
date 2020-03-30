@@ -2,6 +2,8 @@ package com.example.covid_19info.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.text.Html;
+import android.text.Spanned;
 
 import com.example.covid_19info.data.model.Country;
 import com.google.gson.Gson;
@@ -19,8 +21,8 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class AppUtils {
 
-    public static String formatText(String title, int data) {
-        return String.format("%s\n\n %s", title, data);
+    public static Spanned formatText(String title, int data) {
+        return Html.fromHtml(String.format("%s<br><br><strong><big>%s</big></strong>", title, data), Html.FROM_HTML_MODE_COMPACT);
     }
 
 

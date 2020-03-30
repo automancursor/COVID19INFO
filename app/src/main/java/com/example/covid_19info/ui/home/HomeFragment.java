@@ -1,8 +1,6 @@
 package com.example.covid_19info.ui.home;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,6 +51,13 @@ public class HomeFragment extends Fragment {
 
             Calendar cal = Calendar.getInstance();
             cal.setTimeInMillis(data.getUpdated());
+
+            totalCases.setVisibility(View.VISIBLE);
+            totalActive.setVisibility(View.VISIBLE);
+            totalDeaths.setVisibility(View.VISIBLE);
+            todayCases.setVisibility(View.VISIBLE);
+            todayDeaths.setVisibility(View.VISIBLE);
+            totalRecovered.setVisibility(View.VISIBLE);
 
             totalCases.setText(AppUtils.formatText("Total", data.getCases()));
             totalActive.setText(AppUtils.formatText("Active", data.getActive()));

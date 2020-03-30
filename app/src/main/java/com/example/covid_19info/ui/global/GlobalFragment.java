@@ -49,6 +49,11 @@ public class GlobalFragment extends Fragment {
             Calendar cal = Calendar.getInstance();
             cal.setTimeInMillis(data.getUpdated());
 
+            totalCases.setVisibility(View.VISIBLE);
+            totalActive.setVisibility(View.VISIBLE);
+            totalDeaths.setVisibility(View.VISIBLE);
+            totalRecovered.setVisibility(View.VISIBLE);
+
             totalCases.setText(AppUtils.formatText("Total", data.getCases()));
             totalActive.setText(AppUtils.formatText("Active", data.getActive()));
             totalDeaths.setText(AppUtils.formatText("Deaths", data.getDeaths()));
