@@ -10,6 +10,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.covid_19info.data.model.Country;
+import com.example.covid_19info.utils.Constants;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -27,7 +28,6 @@ public class SettingViewModel extends AndroidViewModel {
 
     private MutableLiveData<String> mText;
     private Context context = getApplication().getApplicationContext();
-    private static final String COUNTRY = "country";
 
     public SettingViewModel(@NonNull Application application) {
         super(application);
@@ -73,8 +73,8 @@ public class SettingViewModel extends AndroidViewModel {
 
 
     public String getCurrentCountry() {
-        SharedPreferences preferences = context.getSharedPreferences(COUNTRY, MODE_PRIVATE);
-        return preferences.getString(COUNTRY, "");
+        SharedPreferences preferences = context.getSharedPreferences(Constants.COUNTRY, MODE_PRIVATE);
+        return preferences.getString(Constants.FULL_COUNTRY_NAME, "");
     }
 
  /*   public SettingViewModel() {

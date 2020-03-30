@@ -44,12 +44,6 @@ public class GlobalFragment extends Fragment {
         unbinder = ButterKnife.bind(this, root);
 
 
-      /*  final TextView textUpdated = root.findViewById(R.id.text_updated);
-        final TextView totalCases = root.findViewById(R.id.text_total_cases);
-        final TextView totalDeaths = root.findViewById(R.id.text_total_deaths);
-        final TextView totalActive = root.findViewById(R.id.text_total_active_cases);
-        final TextView totalRecovered = root.findViewById(R.id.text_total_recovered);*/
-
         globalViewModel.getData().observe(getViewLifecycleOwner(), data -> {
 
             Calendar cal = Calendar.getInstance();
@@ -59,8 +53,6 @@ public class GlobalFragment extends Fragment {
             totalActive.setText(AppUtils.formatText("Active", data.getActive()));
             totalDeaths.setText(AppUtils.formatText("Deaths", data.getDeaths()));
             totalRecovered.setText(AppUtils.formatText("Recovered", data.getRecovered()));
-         /*   textUpdated.setText("Updated On : " + cal.get(Calendar.HOUR) + ":" + cal.get(Calendar.MINUTE) + " "
-                    + cal.get(Calendar.DATE) + "/" + (cal.get(Calendar.MONTH) + 1) + "/" + cal.get(Calendar.YEAR));*/
 
             String sf = String.format("%s%s:%s %s/%s/%s", "Updated On :", cal.get(Calendar.HOUR), cal.get(Calendar.MINUTE), cal.get(Calendar.DATE),
                     (cal.get(Calendar.MONTH) + 1), cal.get(Calendar.YEAR));

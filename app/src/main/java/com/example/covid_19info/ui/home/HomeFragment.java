@@ -47,15 +47,6 @@ public class HomeFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         unbinder = ButterKnife.bind(this, root);
 
-       /* final TextView textUpdated = root.findViewById(R.id.text_updated);
-        final TextView totalCases = root.findViewById(R.id.text_total_cases);
-        final TextView countryName = root.findViewById(R.id.text_country_name);
-        final TextView totalDeaths = root.findViewById(R.id.text_total_deaths);
-        final TextView todayCases = root.findViewById(R.id.text_total_today_cases);
-        final TextView todayDeaths = root.findViewById(R.id.text_total_today_deaths);
-        final TextView totalActive = root.findViewById(R.id.text_total_active_cases);
-        final TextView totalRecovered = root.findViewById(R.id.text_total_recovered);*/
-
         homeViewModel.getData().observe(getViewLifecycleOwner(), data -> {
 
             Calendar cal = Calendar.getInstance();

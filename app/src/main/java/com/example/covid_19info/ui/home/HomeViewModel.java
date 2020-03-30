@@ -11,14 +11,11 @@ import androidx.lifecycle.MutableLiveData;
 import com.example.covid_19info.data.api.APICall;
 import com.example.covid_19info.data.api.BaseApiResponse;
 import com.example.covid_19info.data.model.GlobalData;
+import com.example.covid_19info.utils.Constants;
 
 import static android.content.Context.MODE_PRIVATE;
 
 public class HomeViewModel extends AndroidViewModel {
-
-    private static final String COUNTRY = "country";
-
-
     private APICall apiCall;
     private MutableLiveData<GlobalData> data;
     private Context context = getApplication().getApplicationContext();
@@ -26,7 +23,7 @@ public class HomeViewModel extends AndroidViewModel {
     public HomeViewModel(@NonNull Application application) {
         super(application);
 
-        String countryISO3 = context.getSharedPreferences(COUNTRY, MODE_PRIVATE).getString(COUNTRY, "");
+        String countryISO3 = context.getSharedPreferences(Constants.COUNTRY, MODE_PRIVATE).getString(Constants.COUNTRY, "");
 
         data = new MutableLiveData<>();
         apiCall = new APICall();
