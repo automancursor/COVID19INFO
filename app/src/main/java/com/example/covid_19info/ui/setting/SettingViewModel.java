@@ -33,4 +33,7 @@ public class SettingViewModel extends AndroidViewModel {
         return preferences.getString(Constants.FULL_COUNTRY_NAME, "");
     }
 
+    void saveCountry(String country) {
+        AppUtils.saveCountry(context, country);
+    }
 }

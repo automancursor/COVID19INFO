@@ -1,6 +1,7 @@
 package com.example.covid_19info.utils;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 
 import com.example.covid_19info.data.model.Country;
 import com.google.gson.Gson;
@@ -13,6 +14,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class AppUtils {
 
@@ -56,5 +59,17 @@ public class AppUtils {
             return null;
         }
         return json;
+    }
+
+    public static void saveCountry(Context context, String country) {
+        String[] fullName = country.split("-");
+        String iso = fullName[1];
+        String iso3 = iso.replaceAll("\\p{P}", "").trim();
+
+        SharedPreferences preferences = context.getSharedPreferences(Constants.COUNTRY, MODE_PRIVATE);
+        SharedPreferences.Editor edit = preferences.edit();
+        edit.putString(Constants.COUNTRY, iso3);
+        edit.putString(Constants.FULL_COUNTRY_NAME, country);
+        edit.apply();
     }
 }

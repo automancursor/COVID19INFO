@@ -1,5 +1,6 @@
 package com.example.covid_19info.ui.setting;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,12 +14,15 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.covid_19info.R;
 import com.example.covid_19info.data.model.Country;
+import com.example.covid_19info.utils.Constants;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class SettingFragment extends Fragment {
 
@@ -38,14 +42,16 @@ public class SettingFragment extends Fragment {
         autoCompleteTextView.setAdapter(dataAdapter);
         autoCompleteTextView.setText(mViewModel.getCurrentCountry());
 
+        autoCompleteTextView.setOnItemClickListener((parent, view, position, id) ->
+                mViewModel.saveCountry(parent.getItemAtPosition(position).toString()));
 
         return root;
     }
+
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
-
     }
 }
