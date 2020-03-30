@@ -2,6 +2,7 @@ package com.example.covid_19info.ui.setting;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,6 +62,7 @@ public class SettingFragment extends Fragment {
         View view = inflater.inflate(R.layout.layout_about_us, null);
         builder.setView(view);
         TextView tvEmail = view.findViewById(R.id.tvEmail);
+        TextView tvWebSite = view.findViewById(R.id.tvWebSite);
         tvEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,6 +74,16 @@ public class SettingFragment extends Fragment {
                 startActivity(Intent.createChooser(email, "Choose an Email client :"));
             }
         });
+
+        tvWebSite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("https://thenineties.tech");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+
         builder.create();
         builder.show();
     }
