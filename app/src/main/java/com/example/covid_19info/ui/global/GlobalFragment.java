@@ -77,6 +77,7 @@ public class GlobalFragment extends Fragment {
         });
 
         globalViewModel.getAllData().observe(getViewLifecycleOwner(), allData -> {
+            this.allData.clear();
             this.allData.addAll(allData);
             adapter.notifyDataSetChanged();
         });

@@ -22,7 +22,7 @@ import static android.content.Context.MODE_PRIVATE;
 public class AppUtils {
 
     public static Spanned formatText(String title, int data) {
-        return Html.fromHtml(String.format("%s<br><br><strong><big>%s</big></strong>", title, data), Html.FROM_HTML_MODE_COMPACT);
+        return Html.fromHtml(String.format("%s<br><strong><big>%s</big></strong>", title, data), Html.FROM_HTML_MODE_COMPACT);
     }
 
 
