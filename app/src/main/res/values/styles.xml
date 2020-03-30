@@ -8,8 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="TextFont" >
+    <style name="TextFont">
         <item name="fontFamily">@font/oswald_regular</item>
     </style>
 
+
+    <style name="Widget.BottomNavigationView" parent="Widget.Design.BottomNavigationView">
+        <item name="fontFamily">@font/oswald_regular</item>
+    </style>
 </resources>
