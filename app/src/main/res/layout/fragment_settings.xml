@@ -22,6 +22,7 @@
 
     <AutoCompleteTextView
         android:id="@+id/autoCompleteTextView"
+        style="@style/TextFont"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -29,7 +30,8 @@
         android:minHeight="40dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:hint="Country input" />
 
     <View
         android:id="@+id/view"
@@ -43,7 +45,7 @@
 
     <TextView
         android:id="@+id/button"
-        style="@style/TextAppearance.AppCompat.Subhead"
+        style="@style/TextFont"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -52,5 +54,6 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        tools:hint="Country input" />
 </androidx.constraintlayout.widget.ConstraintLayout>
