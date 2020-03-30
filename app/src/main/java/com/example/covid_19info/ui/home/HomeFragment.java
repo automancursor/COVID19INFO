@@ -59,15 +59,15 @@ public class HomeFragment extends Fragment {
             todayDeaths.setVisibility(View.VISIBLE);
             totalRecovered.setVisibility(View.VISIBLE);
 
-            totalCases.setText(AppUtils.formatText("Total", data.getCases()));
-            totalActive.setText(AppUtils.formatText("Active", data.getActive()));
-            totalDeaths.setText(AppUtils.formatText("Deaths", data.getDeaths()));
+            totalCases.setText(AppUtils.formatText("Total Cases", data.getCases()));
+            totalActive.setText(AppUtils.formatText("Active Cases", data.getActive()));
+            totalDeaths.setText(AppUtils.formatText("Total Deaths", data.getDeaths()));
 
             countryName.setText(String.valueOf(data.getCountry()));
 
             todayCases.setText(AppUtils.formatText("Today's Cases", data.getTodayCases()));
             todayDeaths.setText(AppUtils.formatText("Today's Deaths", data.getTodayDeaths()));
-            totalRecovered.setText(AppUtils.formatText("Recovered", data.getRecovered()));
+            totalRecovered.setText(AppUtils.formatText("Total Recovered", data.getRecovered()));
 
 
             String sf = String.format("%s%s:%s %s/%s/%s", "Updated On => ", cal.get(Calendar.HOUR), cal.get(Calendar.MINUTE), cal.get(Calendar.DATE),

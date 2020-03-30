@@ -17,15 +17,14 @@
         app:layout_constraintBottom_toTopOf="@id/text_total_cases"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Update On: 10:30 03/03/2020" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_total_cases"
         style="@style/TextFont"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/bg_cornered_teal"
         android:paddingTop="10dp"
@@ -35,9 +34,7 @@
         android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@id/text_total_active_cases"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_updated"
-        tools:text="Total \n 2020"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toBottomOf="@id/text_updated" />
 
     <TextView
         android:id="@+id/text_total_active_cases"
@@ -46,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/bg_cornered_purple"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
@@ -55,16 +52,14 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/text_total_cases"
-        app:layout_constraintTop_toBottomOf="@id/text_updated"
-        tools:text="Active \n 2020"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toBottomOf="@id/text_updated" />
 
     <TextView
         android:id="@+id/text_total_deaths"
         style="@style/TextFont"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/bg_cornered_red"
         android:paddingTop="10dp"
@@ -74,9 +69,7 @@
         android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@id/text_total_recovered"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_total_cases"
-        tools:text="Deaths \n 2020"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toBottomOf="@id/text_total_cases" />
 
     <TextView
         android:id="@+id/text_total_recovered"
@@ -85,7 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/bg_cornered_green"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
@@ -94,15 +87,14 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/text_total_deaths"
-        app:layout_constraintTop_toBottomOf="@id/text_total_active_cases"
-        tools:text="Recovered \n 2020"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toBottomOf="@id/text_total_active_cases" />
 
 
     <LinearLayout
         android:id="@+id/ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="30dp"
         android:orientation="horizontal"
         android:visibility="gone"
@@ -110,6 +102,7 @@
 
         <TextView
             android:id="@+id/text_country_name"
+            style="@style/TextFontSemiBold"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -120,6 +113,7 @@
 
         <TextView
             android:id="@+id/text_total_case"
+            style="@style/TextFontSemiBold"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -128,6 +122,7 @@
 
         <TextView
             android:id="@+id/text_total_death"
+            style="@style/TextFontSemiBold"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -136,6 +131,7 @@
 
         <TextView
             android:id="@+id/text_total_today_case"
+            style="@style/TextFontSemiBold"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -144,6 +140,7 @@
 
         <TextView
             android:id="@+id/text_total_today_death"
+            style="@style/TextFontSemiBold"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"

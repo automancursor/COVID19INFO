@@ -66,10 +66,10 @@ public class GlobalFragment extends Fragment {
             totalRecovered.setVisibility(View.VISIBLE);
             linearLayout.setVisibility(View.VISIBLE);
 
-            totalCases.setText(AppUtils.formatText("Total", data.getCases()));
-            totalActive.setText(AppUtils.formatText("Active", data.getActive()));
-            totalDeaths.setText(AppUtils.formatText("Deaths", data.getDeaths()));
-            totalRecovered.setText(AppUtils.formatText("Recovered", data.getRecovered()));
+            totalCases.setText(AppUtils.formatText("Total Cases", data.getCases()));
+            totalActive.setText(AppUtils.formatText("Active Cases", data.getActive()));
+            totalDeaths.setText(AppUtils.formatText("Total Deaths", data.getDeaths()));
+            totalRecovered.setText(AppUtils.formatText("Total Recovered", data.getRecovered()));
 
             String sf = String.format("%s%s:%s %s/%s/%s", "Updated On => ", cal.get(Calendar.HOUR), cal.get(Calendar.MINUTE), cal.get(Calendar.DATE),
                     (cal.get(Calendar.MONTH) + 1), cal.get(Calendar.YEAR));

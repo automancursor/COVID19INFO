@@ -18,8 +18,7 @@
         app:layout_constraintBottom_toTopOf="@id/text_updated"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="United Kingdom" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_updated"
@@ -31,15 +30,14 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_country_name"
-        tools:text="Update On: 10:30 03/03/2020" />
+        app:layout_constraintTop_toBottomOf="@id/text_country_name" />
 
     <TextView
         android:id="@+id/text_total_cases"
         style="@style/TextFont"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/bg_cornered_teal"
         android:paddingTop="10dp"
@@ -49,9 +47,7 @@
         android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@id/text_total_active_cases"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_updated"
-        tools:text="Total Cases \n 2020"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toBottomOf="@id/text_updated" />
 
     <TextView
         android:id="@+id/text_total_active_cases"
@@ -60,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/bg_cornered_purple"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
@@ -69,16 +65,14 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/text_total_cases"
-        app:layout_constraintTop_toBottomOf="@id/text_updated"
-        tools:text="Total active cases \n 2020"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toBottomOf="@id/text_updated" />
 
     <TextView
         android:id="@+id/text_total_deaths"
         style="@style/TextFont"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/bg_cornered_red"
         android:paddingTop="10dp"
@@ -88,9 +82,7 @@
         android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@id/text_total_recovered"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_total_cases"
-        tools:text="Total deaths \n 2020"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toBottomOf="@id/text_total_cases" />
 
     <TextView
         android:id="@+id/text_total_recovered"
@@ -99,7 +91,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/bg_cornered_green"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
@@ -108,16 +100,14 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/text_total_deaths"
-        app:layout_constraintTop_toBottomOf="@id/text_total_active_cases"
-        tools:text="Total recovered \n 2020"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toBottomOf="@id/text_total_active_cases" />
 
     <TextView
         android:id="@+id/text_total_today_cases"
         style="@style/TextFont"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/bg_cornered_blue"
         android:paddingTop="10dp"
@@ -127,9 +117,7 @@
         android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@id/text_total_today_deaths"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_total_deaths"
-        tools:text="Total today cases \n 2020"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toBottomOf="@id/text_total_deaths" />
 
     <TextView
         android:id="@+id/text_total_today_deaths"
@@ -138,7 +126,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/bg_cornered_orange"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
@@ -147,8 +135,6 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/text_total_today_cases"
-        app:layout_constraintTop_toBottomOf="@id/text_total_recovered"
-        tools:text="Total today deaths \n 2020"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toBottomOf="@id/text_total_recovered" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
