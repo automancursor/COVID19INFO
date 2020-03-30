@@ -70,10 +70,9 @@ public class HomeFragment extends Fragment {
             totalRecovered.setText(AppUtils.formatText("Recovered", data.getRecovered()));
 
 
-            String sf = String.format("%s%s:%s %s/%s/%s", "Updated On :", cal.get(Calendar.HOUR), cal.get(Calendar.MINUTE), cal.get(Calendar.DATE),
+            String sf = String.format("%s%s:%s %s/%s/%s", "Updated On => ", cal.get(Calendar.HOUR), cal.get(Calendar.MINUTE), cal.get(Calendar.DATE),
                     (cal.get(Calendar.MONTH) + 1), cal.get(Calendar.YEAR));
             textUpdated.setText(sf);
-
 
         });
 
