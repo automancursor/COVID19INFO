@@ -49,7 +49,7 @@ public class SettingFragment extends Fragment {
         autoCompleteTextView.setOnItemClickListener((parent, view, position, id) ->
                 mViewModel.saveCountry(parent.getItemAtPosition(position).toString()));
 
-        tvAppVersion.setText(String.format("%s%s", "Version ", BuildConfig.VERSION_NAME));
+        tvAppVersion.setText(String.format("%s%s\n%s", "App Version ", BuildConfig.VERSION_NAME, getResources().getString(R.string.about)));
 
         return root;
     }
