@@ -11,15 +11,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        android:fontFamily="@font/oswald_bold"
         android:textAlignment="center"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@id/text_total_cases"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Update On: 10:30 03/03/2020" />
 
     <TextView
         android:id="@+id/text_total_cases"
+        style="@style/TextFont"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -32,10 +35,13 @@
         android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@id/text_total_active_cases"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_updated" />
+        app:layout_constraintTop_toBottomOf="@id/text_updated"
+        tools:text="Total \n 2020"
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/text_total_active_cases"
+        style="@style/TextFont"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -49,10 +55,13 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/text_total_cases"
-        app:layout_constraintTop_toBottomOf="@id/text_updated" />
+        app:layout_constraintTop_toBottomOf="@id/text_updated"
+        tools:text="Active \n 2020"
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/text_total_deaths"
+        style="@style/TextFont"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -65,10 +74,13 @@
         android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@id/text_total_recovered"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_total_cases" />
+        app:layout_constraintTop_toBottomOf="@id/text_total_cases"
+        tools:text="Deaths \n 2020"
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/text_total_recovered"
+        style="@style/TextFont"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -82,7 +94,9 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/text_total_deaths"
-        app:layout_constraintTop_toBottomOf="@id/text_total_active_cases" />
+        app:layout_constraintTop_toBottomOf="@id/text_total_active_cases"
+        tools:text="Recovered \n 2020"
+        tools:visibility="visible" />
 
 
     <LinearLayout

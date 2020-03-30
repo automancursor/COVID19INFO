@@ -1,20 +1,20 @@
 package com.example.covid_19info.ui.setting;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.covid_19info.BuildConfig;
 import com.example.covid_19info.R;
 import com.example.covid_19info.data.model.Country;
-import com.example.covid_19info.utils.Constants;
 
 import java.util.List;
 
@@ -22,14 +22,15 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-import static android.content.Context.MODE_PRIVATE;
-
 public class SettingFragment extends Fragment {
 
     private SettingViewModel mViewModel;
 
     @BindView(R.id.autoCompleteTextView)
     AutoCompleteTextView autoCompleteTextView;
+
+    @BindView(R.id.tvAppVersion)
+    TextView tvAppVersion;
     private Unbinder unbinder;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -44,6 +45,8 @@ public class SettingFragment extends Fragment {
 
         autoCompleteTextView.setOnItemClickListener((parent, view, position, id) ->
                 mViewModel.saveCountry(parent.getItemAtPosition(position).toString()));
+
+        tvAppVersion.setText(String.format("%s%s", "Version ", BuildConfig.VERSION_NAME));
 
         return root;
     }
