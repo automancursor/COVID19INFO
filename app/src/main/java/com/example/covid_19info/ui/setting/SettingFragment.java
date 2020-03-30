@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 
@@ -38,9 +37,6 @@ public class SettingFragment extends Fragment {
         ArrayAdapter<Country> dataAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, countryList);
         autoCompleteTextView.setAdapter(dataAdapter);
         autoCompleteTextView.setText(mViewModel.getCurrentCountry());
-
-
-
 
 
         return root;
