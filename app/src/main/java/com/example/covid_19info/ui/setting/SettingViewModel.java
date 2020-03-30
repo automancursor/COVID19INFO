@@ -77,6 +77,18 @@ public class SettingViewModel extends AndroidViewModel {
         return preferences.getString(Constants.FULL_COUNTRY_NAME, "");
     }
 
+    public void saveCountry(String country) {
+        String[] fullName = country.split("-");
+        String iso = fullName[1];
+        String iso3 = iso.replaceAll("\\p{P}", "").trim();
+
+        SharedPreferences preferences = context.getSharedPreferences(Constants.COUNTRY, MODE_PRIVATE);
+        SharedPreferences.Editor edit = preferences.edit();
+        edit.putString(Constants.COUNTRY, iso3);
+        edit.putString(Constants.FULL_COUNTRY_NAME, country);
+        edit.commit();
+
+    }
  /*   public SettingViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is setting fragment");
