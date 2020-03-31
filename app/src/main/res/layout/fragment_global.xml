@@ -14,11 +14,9 @@
         android:fontFamily="@font/oswald_semi_bold"
         android:textAlignment="center"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@id/text_total_cases"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Update On 22:22 02/02/2020" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_total_cases"
@@ -35,8 +33,7 @@
         android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@id/text_total_active_cases"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_updated"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toBottomOf="@id/text_updated" />
 
     <TextView
         android:id="@+id/text_total_active_cases"
@@ -54,8 +51,7 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/text_total_cases"
-        app:layout_constraintTop_toBottomOf="@id/text_updated"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toBottomOf="@id/text_updated" />
 
     <TextView
         android:id="@+id/text_total_deaths"
@@ -72,8 +68,7 @@
         android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@id/text_total_recovered"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_total_cases"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toBottomOf="@id/text_total_cases" />
 
     <TextView
         android:id="@+id/text_total_recovered"
@@ -91,8 +86,7 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/text_total_deaths"
-        app:layout_constraintTop_toBottomOf="@id/text_total_active_cases"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toBottomOf="@id/text_total_active_cases" />
 
 
     <LinearLayout
@@ -104,8 +98,7 @@
         android:orientation="horizontal"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/recycler"
-        app:layout_constraintTop_toBottomOf="@id/text_total_recovered"
-        tools:visibility="visible">
+        app:layout_constraintTop_toBottomOf="@id/text_total_recovered">
 
         <TextView
             android:id="@+id/text_country_name"

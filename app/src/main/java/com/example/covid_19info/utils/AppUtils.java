@@ -2,6 +2,7 @@ package com.example.covid_19info.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.text.Html;
 import android.text.Spanned;
 
@@ -21,8 +22,18 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class AppUtils {
 
+    /**
+     * format the text to the html format as per requirement of design
+     * @param title title of the info box
+     * @param data value of the info box
+     * @return
+     */
     public static Spanned formatText(String title, int data) {
-        return Html.fromHtml(String.format("%s<br><strong><big>%s</big></strong>", title, data), Html.FROM_HTML_MODE_COMPACT);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            return Html.fromHtml(String.format("%s<br><strong><big>%s</big></strong>", title, data), Html.FROM_HTML_MODE_COMPACT);
+        } else {
+            return Html.fromHtml(String.format("%s<br><strong><big>%s</big></strong>", title, data));
+        }
     }
 
 

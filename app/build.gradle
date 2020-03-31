@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         release {
-            storeFile file('D:\\workspace\\android\\covid\\release.jks')
+            storeFile file('release.jks')
             storePassword 'Covid19'
             keyAlias = 'covid19'
             keyPassword 'Covid19'
@@ -14,7 +14,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.covid_19info"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
