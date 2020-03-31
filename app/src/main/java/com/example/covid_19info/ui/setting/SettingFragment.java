@@ -1,5 +1,8 @@
 package com.example.covid_19info.ui.setting;
 
+import android.app.AlertDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +23,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 public class SettingFragment extends Fragment {
@@ -51,6 +55,38 @@ public class SettingFragment extends Fragment {
         return root;
     }
 
+    @OnClick(R.id.aboutUs)
+    void onClick() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        LayoutInflater inflater = requireActivity().getLayoutInflater();
+        View view = inflater.inflate(R.layout.layout_about_us, null);
+        builder.setView(view);
+        TextView tvEmail = view.findViewById(R.id.tvEmail);
+        TextView tvWebSite = view.findViewById(R.id.tvWebSite);
+        tvEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent email = new Intent(Intent.ACTION_SEND);
+                email.putExtra(Intent.EXTRA_EMAIL, new String[]{"thenineties.tech@gmail.com"});
+                email.putExtra(Intent.EXTRA_SUBJECT, "");
+                email.putExtra(Intent.EXTRA_TEXT, "");
+                email.setType("message/rfc822");
+                startActivity(Intent.createChooser(email, "Choose an Email client :"));
+            }
+        });
+
+        tvWebSite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("https://thenineties.tech");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+
+        builder.create();
+        builder.show();
+    }
 
     @Override
     public void onDestroyView() {
