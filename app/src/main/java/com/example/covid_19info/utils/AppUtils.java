@@ -24,9 +24,10 @@ public class AppUtils {
 
     /**
      * format the text to the html format as per requirement of design
+     *
      * @param title title of the info box
-     * @param data value of the info box
-     * @return
+     * @param data  value of the info box
+     * @return formatted html Spanned string with bold and big
      */
     public static Spanned formatText(String title, int data) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
@@ -37,6 +38,12 @@ public class AppUtils {
     }
 
 
+    /**
+     * converts the stored json file information to array as per the model
+     *
+     * @param context application context
+     * @return the list of countries model
+     */
     public static List<Country> getCountries(Context context) {
         String countries = loadJSONFromAsset(context);
         List<Country> countryList = new ArrayList<>();
@@ -58,6 +65,12 @@ public class AppUtils {
     }
 
 
+    /**
+     * retrieves the locally saved json file of the countries
+     *
+     * @param context application context
+     * @return the string of the saved json file
+     */
     private static String loadJSONFromAsset(Context context) {
         String json = null;
         try {
@@ -74,6 +87,12 @@ public class AppUtils {
         return json;
     }
 
+    /**
+     * convert the contry name into is03 and save into the share preferences
+     *
+     * @param context application context
+     * @param country name of the country to save
+     */
     public static void saveCountry(Context context, String country) {
         String[] fullName = country.split("-");
         String iso = fullName[1];

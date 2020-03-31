@@ -28,11 +28,19 @@ public class SettingViewModel extends AndroidViewModel {
         return AppUtils.getCountries(context);
     }
 
+    /**
+     * @return the name of the country iso3
+     */
     String getCurrentCountry() {
         SharedPreferences preferences = context.getSharedPreferences(Constants.COUNTRY, MODE_PRIVATE);
         return preferences.getString(Constants.FULL_COUNTRY_NAME, "");
     }
 
+    /**
+     * save the country ios3
+     *
+     * @param country name of the country
+     */
     void saveCountry(String country) {
         AppUtils.saveCountry(context, country);
     }

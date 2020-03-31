@@ -23,16 +23,29 @@ public class ChooseCountryViewModel extends AndroidViewModel {
         super(application);
     }
 
-
+    /**
+     * retrieve the country list from local
+     *
+     * @return
+     */
     List<Country> getCountries() {
         return AppUtils.getCountries(context);
-
     }
 
+    /**
+     * save the country iso3
+     *
+     * @param country country name
+     */
     void saveCountry(String country) {
         AppUtils.saveCountry(context, country);
     }
 
+    /**
+     * check if the country is03 is set in the local storage
+     *
+     * @return true if saved, false if not
+     */
     boolean isCountrySelected() {
         SharedPreferences preferences = context.getSharedPreferences(COUNTRY, MODE_PRIVATE);
         return !"".equalsIgnoreCase(preferences.getString(COUNTRY, ""));

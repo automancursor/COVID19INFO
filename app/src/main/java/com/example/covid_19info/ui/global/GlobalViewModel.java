@@ -48,11 +48,19 @@ public class GlobalViewModel extends ViewModel {
         });
     }
 
+    /**
+     *
+     * @return the API retrieved overall cumulative data
+     */
     public LiveData<OverallData> getData() {
         return data;
     }
 
-    public LiveData<ArrayList<GlobalData>> getAllData() {
+    /**
+     *
+     * @return the API retrieved data of all the countries
+     */
+    LiveData<ArrayList<GlobalData>> getAllData() {
         return allData;
     }
 
