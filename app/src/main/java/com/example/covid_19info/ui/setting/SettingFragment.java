@@ -63,25 +63,22 @@ public class SettingFragment extends Fragment {
         builder.setView(view);
         TextView tvEmail = view.findViewById(R.id.tvEmail);
         TextView tvWebSite = view.findViewById(R.id.tvWebSite);
-        tvEmail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent email = new Intent(Intent.ACTION_SEND);
-                email.putExtra(Intent.EXTRA_EMAIL, new String[]{"thenineties.tech@gmail.com"});
-                email.putExtra(Intent.EXTRA_SUBJECT, "");
-                email.putExtra(Intent.EXTRA_TEXT, "");
-                email.setType("message/rfc822");
-                startActivity(Intent.createChooser(email, "Choose an Email client :"));
-            }
+
+        tvEmail.setOnClickListener(v -> {
+
+            Intent email = new Intent(Intent.ACTION_SEND);
+            email.putExtra(Intent.EXTRA_EMAIL, new String[]{getString(R.string.tntEmail)});
+            email.putExtra(Intent.EXTRA_SUBJECT, "");
+            email.putExtra(Intent.EXTRA_TEXT, "");
+            email.setType("message/rfc822");
+            startActivity(Intent.createChooser(email, "Choose an Email client :"));
         });
 
-        tvWebSite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Uri uri = Uri.parse("https://thenineties.tech");
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-            }
+        tvWebSite.setOnClickListener(v -> {
+
+            Uri uri = Uri.parse(getString(R.string.tntWeb));
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
         });
 
         builder.create();
